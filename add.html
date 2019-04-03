@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>ADDING WORD INTO DICTIONARY</title>
+  </head>
+  <body bgcolor="#996666">
+    <a href="/"> HOME </a><br/>
+    {{message}}
+    <h2>ADD WORD INTO A DICTIONARY</h2>
+    <h4>Words should be minimum 3 letters in length</h4>
+      <form  action="/add" method="POST">
+        WORD:<input type="text" pattern="([A-Za-z]).{2,}" name="Word" >
+        <input type="submit" name="button" value="Add" >
+      </form>
+  </body>
+</html>

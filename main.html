@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>ANAGRAM LOGIN</title>
+  </head>
+  <body bgcolor="#996666" >
+    <p>Welome to the application <b>{{user.email()}}</b>, you can logout <a href="{{logout_url}}"> here</a></p>
+    <h4>CURRENT UNIQUE ANAGRAM COUNT : {{myuser.myAnagram}} </h4>
+    <h4>CURRENT WORD COUNT: {{myuser.myWordCount}}</h4>
+    <p> To add words through a file <a href="/upload"> click here </a></p>
+    <p> To add the words into the dictionary <a href="/add"> click here </a></p>
+
+    <p font-size=40px> Enter a word to search</p>
+    <form  action="/" method="post">
+      WORD : <input type="text" pattern="([A-Za-z]).{2,}" name="word">
+              <input type="submit" name="button" value="SEARCH">
+              <br/>
+    </form>
+
+{{message}}<br/>
+Key:{{ ana.AnagramKey }}
+<table border="1px">
+  <th> WORDLIST </th>
+  {% for x in ana.WordList %}
+      <tr><td>{{ x }}</td></tr>
+  {% endfor %}
+</table>
+<br/>
+<br/>
+
+
+
+
+  </body>
+</html>
