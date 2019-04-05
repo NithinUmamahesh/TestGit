@@ -3,15 +3,28 @@
   <head>
     <meta charset="utf-8">
     <title>FILE UPLOAD</title>
+    <style>
+    div#upload {
+      padding: 20px;
+      border: 1px solid red;
+      border-radius: 8px;
+      background-color: orange;
+      width: 500px;
+      text-align: center;
+      resize: both;
+      margin:auto;
+    }
+    </style>
   </head>
-  <body bgcolor="#996666">
+  <body bgcolor="#D1C852">
     <a href="/"> HOME </a>
-    <h1>{{message}}</h1>
+    <h1 align=center>{{message}}</h1>
     <br/>
+    <div id="upload">
     <form action="/upload" method="post">
       Select a file: <input type="file" name="myFile"><br><br>
       <input type="submit" name="button" value="UPLOAD">
     </form>
-
+    </div>
   </body>
 </html>

@@ -3,15 +3,41 @@
   <head>
     <meta charset="utf-8">
     <title>ADDING WORD INTO DICTIONARY</title>
+    <style>
+  div#add_outer {
+    padding: 20px;
+    border: 1px solid blue;
+    border-radius: 8px;
+    background-color: orange;
+    width: 500px;
+    text-align: center;
+    resize: both;
+  }
+  div#add_inner {
+    padding: 20px;
+    border: 1px solid blue;
+    border-radius: 8px;
+    background-color: gold;
+    width: 500px;
+    text-align: center;
+    resize: both;
+  }
+</style>
   </head>
-  <body bgcolor="#996666">
+  <body bgcolor="#D1C852">
     <a href="/"> HOME </a><br/>
-    {{message}}
-    <h2>ADD WORD INTO A DICTIONARY</h2>
-    <h4>Words should be minimum 3 letters in length</h4>
-      <form  action="/add" method="POST">
+    <h1 align=center>{{message}}!!! </h1>
+    <div style="width:500px; margin:0 auto;">
+    <div id="add_outer"
+    <h2>ADD WORD </h2>
+  </div>
+    <div id="add_inner">
+    <h4 align=center>Words should be minimum 3 letters in length</h4>
+      <form  align=center action="/add" method="POST">
         WORD:<input type="text" pattern="([A-Za-z]).{2,}" name="Word" >
         <input type="submit" name="button" value="Add" >
       </form>
+    </div>
+  </div>
   </body>
 </html>

@@ -3,34 +3,103 @@
   <head>
     <meta charset="utf-8">
     <title>ANAGRAM LOGIN</title>
+    <style>
+  div#count {
+    padding: 5px;
+    border: 1px solid blue;
+    border-radius: 4px;
+    background-color: orange;
+    width: 500px;
+    text-align: center;
+    resize: both;
+    margin: auto;
+  }
+  div#add_file {
+    padding: 5px;;
+    border: 1px solid blue;
+    border-radius: 8px;
+    background-color: orange;
+    width: 500px;
+    text-align: center;
+    resize: both;
+    margin: auto;
+  }
+  div#add {
+    padding: 5px;
+    border: 1px solid blue;
+    border-radius: 8px;
+    background-color: orange;
+    width: 500px;
+    text-align: center;
+    resize: both;
+    margin: auto;
+  }
+  div#subana {
+    padding: 5px;
+    border: 1px solid blue;
+    border-radius: 8px;
+    background-color: orange;
+    width: 500px;
+    text-align: center;
+    resize: both;
+    margin: auto;
+  }
+  div#search {
+    padding: 5px;
+    border: 1px solid blue;
+    border-radius: 8px;
+    background-color: orange;
+    width: 500px;
+    text-align: center;
+    resize: both;
+    margin: auto;
+  }
+  /* div#background {
+    background-image: "background.jpg";
+
+  } */
+  body  {
+  background-image: url('background.jpg');
+  }
+  </style>
   </head>
-  <body bgcolor="#996666" >
-    <p>Welome to the application <b>{{user.email()}}</b>, you can logout <a href="{{logout_url}}"> here</a></p>
+  <body bgcolor="#D1C852" >
+    <!-- <div id="background"> -->
+    <h1 align=center>Welome to the application <mark><i>{{user.email()}}</i></mark>, you can logout <a href="{{logout_url}}"> here</a></h1>
+
+    <div id="count">
     <h4>CURRENT UNIQUE ANAGRAM COUNT : {{myuser.myAnagram}} </h4>
     <h4>CURRENT WORD COUNT: {{myuser.myWordCount}}</h4>
-    <p> To add words through a file <a href="/upload"> click here </a></p>
-    <p> To add the words into the dictionary <a href="/add"> click here </a></p>
+    </div>
+    <div id="add_file">
+    <h3> To add words through a file <a href="/upload"> click here </a></h3>
+    </div>
+    <div id = "add">
+    <h3> To add the words into the dictionary <a href="/add"> click here </a></h3>
+    </div>
 
-    <p font-size=40px> Enter a word to search</p>
+    <div id = "subana">
+    <h3> To search for subanagrams <a href="/subanagram"> click here </a></h3>
+    </div>
+
+    <div id="search">
+    <h3> Enter a word to search(3 letters and above)</h3>
     <form  action="/" method="post">
       WORD : <input type="text" pattern="([A-Za-z]).{2,}" name="word">
               <input type="submit" name="button" value="SEARCH">
               <br/>
     </form>
 
+
 {{message}}<br/>
 Key:{{ ana.AnagramKey }}
-<table border="1px">
-  <th> WORDLIST </th>
+<table align=center border="1px">
+  <th> ANAGRAMS </th>
   {% for x in ana.WordList %}
       <tr><td>{{ x }}</td></tr>
   {% endfor %}
 </table>
-<br/>
-<br/>
-
-
-
-
+</div>
+<!-- </div> -->
   </body>
 </html>

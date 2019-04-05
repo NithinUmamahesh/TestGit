@@ -8,12 +8,17 @@ from myuser import MyUser
 from add import Add
 from anagram import Anagram
 from upload import Upload
+from subanagram import SubAnagram
 
 JINJA_ENVIRONMENT = jinja2.Environment(
 loader = jinja2.FileSystemLoader(os.path.dirname(__file__)),
 extensions = ['jinja2.ext.autoescape'],
 autoescape = True
 )
+def lexi(word):
+    list1 = list(word.lower())
+    sorted_list = sorted(list1)
+    return ''.join(sorted_list)
 
 class MainPage(webapp2.RequestHandler):
     def get(self):
@@ -54,10 +59,6 @@ class MainPage(webapp2.RequestHandler):
             user = users.get_current_user()
             myuser_key = ndb.Key('MyUser', user.user_id())
             myuser = myuser_key.get()
-            def lexi(word):
-                list1 = list(word.lower())
-                sorted_list = sorted(list1)
-                return ''.join(sorted_list)
 
             searchText = (self.request.get('word')).lower()
             if searchText == "":
@@ -74,10 +75,6 @@ class MainPage(webapp2.RequestHandler):
 
                 ana_key = ndb.Key("Anagram",user.email()+search_key)
                 ana = ana_key.get()
-                # message = " Word found"
-
-            # ana1 = Anagram.query();
-            # ana =ana1.filter(Anagram.AnagramKey == search_key).fetch(keys_only = True)
 
                 template_values={
                     'ana':ana,
@@ -90,4 +87,4 @@ class MainPage(webapp2.RequestHandler):
 
 
 
-app = webapp2.WSGIApplication([('/',MainPage),('/add',Add),('/upload',Upload)],debug = True)
+app = webapp2.WSGIApplication([('/',MainPage),('/add',Add),('/upload',Upload),('/subanagram',SubAnagram)],debug = True)

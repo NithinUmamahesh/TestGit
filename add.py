@@ -14,6 +14,12 @@ extensions = ['jinja2.ext.autoescape'],
 autoescape = True
 )
 
+def lexi(word):
+    list1 = list(word.lower())
+    sorted_list = sorted(list1)
+    # print(sorted_list)
+    return ''.join(sorted_list)
+
 class Add(webapp2.RequestHandler):
     def get(self):
         self.response.headers['Content-Type'] = 'text/html'
@@ -33,13 +39,6 @@ class Add(webapp2.RequestHandler):
 
         user_key =ndb.Key('MyUser',user.user_id())
         user_info = user_key.get()
-
-
-        def lexi(word):
-            list1 = list(word.lower())
-            sorted_list = sorted(list1)
-            # print(sorted_list)
-            return ''.join(sorted_list)
 
         if action=='Add':
             original_word = (self.request.get('Word')).lower()

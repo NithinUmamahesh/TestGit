@@ -14,6 +14,11 @@ extensions = ['jinja2.ext.autoescape'],
 autoescape = True
 )
 
+def lexi(word):
+    list1 = list(word.lower())
+    sorted_list = sorted(list1)
+    return ''.join(sorted_list)
+
 class Upload(webapp2.RequestHandler):
     def get(self):
         self.response.headers['Content-Type'] = 'text/html'
@@ -32,11 +37,6 @@ class Upload(webapp2.RequestHandler):
         myuser_key = ndb.Key('MyUser', user.user_id())
         myuser = myuser_key.get()
         file = self.request.get('myFile')
-
-        def lexi(word):
-            list1 = list(word.lower())
-            sorted_list = sorted(list1)
-            return ''.join(sorted_list)
 
         if action == 'UPLOAD':
 
