@@ -34,7 +34,7 @@
     <div id="add_inner">
     <h4 align=center>Words should be minimum 3 letters in length</h4>
       <form  align=center action="/add" method="POST">
-        WORD:<input type="text" pattern="([A-Za-z]).{2,}" name="Word" >
+        WORD:<input type="text" pattern="+([A-Za-z]).{2,}" name="Word" >
         <input type="submit" name="button" value="Add" >
       </form>
     </div>
